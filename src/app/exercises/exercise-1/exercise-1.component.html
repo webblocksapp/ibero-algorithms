@@ -1,1 +1,38 @@
-<data-groups></data-groups>
+<data-groups [model]="moneyConversorModel">
+  <data-group>
+    <div class="d-flex flex-wrap">
+      <bs-input
+        class="col-6"
+        #dataInput
+        label="Value"
+        name="initialCurrencyValue"
+        (inputEvent)="convert('target')"
+      ></bs-input>
+      <bs-select
+        class="col-6"
+        #dataInput
+        label="Currency"
+        placeholder="Select a currency"
+        name="initialCurrency"
+        [options]="currencies"
+        (changeEvent)="convert('target')"
+      ></bs-select>
+      <bs-input
+        class="col-6"
+        #dataInput
+        label="Value"
+        name="targetCurrencyValue"
+        (inputEvent)="convert('initial')"
+      ></bs-input>
+      <bs-select
+        class="col-6"
+        #dataInput
+        label="Currency"
+        placeholder="Select a currency"
+        name="targetCurrency"
+        [options]="currencies"
+        (changeEvent)="convert('target')"
+      ></bs-select>
+    </div>
+  </data-group>
+</data-groups>
