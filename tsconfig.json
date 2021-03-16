@@ -16,14 +16,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "paths": {
-      "@libs/ng-forms": ["libs/ng-forms/public-api.d.ts"],
-      "@libs/class-validator": ["libs/class-validator/esm2015"]
-    }
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
