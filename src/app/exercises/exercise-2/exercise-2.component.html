@@ -1,1 +1,55 @@
-<p>exercise works!</p>
+<data-groups class="table-responsive" [model]="coursesModel">
+  <table
+    class="table table-bordered"
+    width="100%"
+    style="max-width: 800px"
+    cellspacing="0"
+  >
+    <thead>
+      <tr>
+        <th width="10%">Students number</th>
+        <th width="15%">Course name</th>
+        <th width="15%">Status</th>
+      </tr>
+    </thead>
+
+    <data-group
+      class="d-table-row"
+      *ngFor="let n of Array(coursesModel.count()); let i = index"
+    >
+      <td class="align-middle">
+        <bs-input
+          (inputEvent)="inactiveOnZero(i); calcAverage()"
+          class="mb-0"
+          #dataInput
+          name="studentsNumber"
+          [disabled]="
+            coursesModel.find(i).getValue('status') === 'inactive'
+              ? true
+              : false
+          "
+        ></bs-input>
+      </td>
+      <td class="align-middle">
+        {{ coursesModel.find(i).getValue('name') }}
+      </td>
+      <td class="align-middle">
+        <bs-radios
+          #dataInput
+          class="status-checks mb-0"
+          display="inline"
+          name="status"
+          [options]="[
+            { value: 'active', viewValue: 'Active' },
+            { value: 'inactive', viewValue: 'Inactive' }
+          ]"
+          (changeEvent)="calcAverage()"
+        ></bs-radios>
+      </td>
+    </data-group>
+    <tr>
+      <td>{{ average }}</td>
+      <td colspan="2"><b>Average</b></td>
+    </tr>
+  </table>
+</data-groups>
