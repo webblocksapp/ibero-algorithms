@@ -28,22 +28,22 @@ export class Exercise2Component implements OnInit {
     this.coursesModel.fill([
       {
         name: 'Fundamentos de Programación y Algorítmica Básica',
-        studentsNumber: '40',
+        studentsNumber: 40,
         status: 'active',
       },
       {
         name: 'Introducción a la ingeniería de software',
-        studentsNumber: '27',
+        studentsNumber: 27,
         status: 'active',
       },
       {
         name: 'Introducción a la modalidad virtual',
-        studentsNumber: '33',
+        studentsNumber: 33,
         status: 'active',
       },
       {
         name: 'Habilidades de la comunicación',
-        studentsNumber: '20',
+        studentsNumber: 20,
         status: 'active',
       },
     ]);
@@ -55,7 +55,7 @@ export class Exercise2Component implements OnInit {
     const courseModel = this.coursesModel.find(index);
     const { studentsNumber } = courseModel.getDto();
 
-    if (parseInt(studentsNumber) === 0) {
+    if (studentsNumber === 0) {
       courseModel.fill({ status: 'inactive' });
     }
   }
@@ -73,7 +73,7 @@ export class Exercise2Component implements OnInit {
 
         this.average = (
           activeCourses.reduce(
-            (sum, course) => sum + parseInt(course.studentsNumber),
+            (sum, course) => sum + course.studentsNumber,
             0,
           ) / numOfActiveCourses
         )

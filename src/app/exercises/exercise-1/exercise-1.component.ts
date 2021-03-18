@@ -22,10 +22,10 @@ export class Exercise1Component implements OnInit {
 
   ngOnInit(): void {
     this.moneyConversorModel.fill({
-      initialCurrency: 'cop',
-      initialCurrencyValue: '0',
+      initialCurrency: 'usd',
+      initialCurrencyValue: 0,
       targetCurrency: 'cop',
-      targetCurrencyValue: '0',
+      targetCurrencyValue: 0,
     });
   }
 
@@ -95,7 +95,7 @@ export class Exercise1Component implements OnInit {
   private calculateConversionRate(
     currency1: Currency,
     currency2: Currency,
-  ): string {
+  ): number {
     const conversionRate = this.conversionRates.find(
       (conversionRate) => conversionRate.currency === currency1.name,
     );
@@ -103,8 +103,6 @@ export class Exercise1Component implements OnInit {
       (rate) => rate.currency === currency2.name,
     );
 
-    return String(
-      (currency1.value * rate.value).toFixed(4).replace(/\.0000$/, ''),
-    );
+    return +(currency1.value * rate.value).toFixed(4).replace(/\.0000$/, '');
   }
 }

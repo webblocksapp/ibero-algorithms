@@ -1,9 +1,8 @@
-import { Matches, IsNotEmpty } from '@webblocksapp/class-validator';
+import { IsNotEmpty } from '@webblocksapp/class-validator';
+import { IsNumber } from '@validations';
 
 export class CoursesDto {
-  @Matches(/^-?\d*\.?\d*$/, {
-    message: 'Required numeric value',
-  })
+  @IsNumber({ message: 'Value must be numeric' })
   studentsNumber: number;
 
   name: string;

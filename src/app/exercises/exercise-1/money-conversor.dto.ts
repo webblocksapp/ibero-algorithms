@@ -1,19 +1,16 @@
-import { IsNotEmpty, Matches } from '@webblocksapp/class-validator';
+import { IsNotEmpty } from '@webblocksapp/class-validator';
+import { IsNumber } from '@validations';
 
 export class MoneyConversorDto {
   @IsNotEmpty()
   initialCurrency: string;
 
-  @Matches(/^-?\d*\.?\d*$/, {
-    message: 'Currency value must be numeric',
-  })
+  @IsNumber({ message: 'Value must be numeric' })
   initialCurrencyValue: number;
 
   @IsNotEmpty()
   targetCurrency: string;
 
-  @Matches(/^-?\d*\.?\d*$/, {
-    message: 'Currency value must be numeric',
-  })
+  @IsNumber({ message: 'Value must be numeric' })
   targetCurrencyValue: number;
 }
