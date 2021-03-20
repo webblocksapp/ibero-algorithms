@@ -1,1 +1,26 @@
-<p>exercise works!</p>
+<div style="width: 100%; max-width: 600px">
+  <bs-input
+    [model]="simpleCalculatorModel"
+    name="number1"
+    (inputEvent)="calc()"
+  ></bs-input>
+  <bs-input
+    [model]="simpleCalculatorModel"
+    name="number2"
+    (inputEvent)="calc()"
+  ></bs-input>
+  <bs-select
+    [model]="simpleCalculatorModel"
+    name="operator"
+    [options]="[
+      { value: '+', viewValue: '+' },
+      { value: '-', viewValue: '-' },
+      { value: '*', viewValue: '×' },
+      { value: '/', viewValue: '÷' }
+    ]"
+    (changeEvent)="calc()"
+  ></bs-select>
+  <span *ngIf="simpleCalculatorModel.isValid">
+    <b>Result:</b> {{ result === null ? 0 : result }}
+  </span>
+</div>
