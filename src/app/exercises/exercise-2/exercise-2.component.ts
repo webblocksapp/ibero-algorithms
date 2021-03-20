@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BaseModelArray } from '@webblocksapp/ng-forms';
-import { CoursesDto } from './courses.dto';
+import { CourseDto } from './courses.dto';
 
 @Component({
   selector: 'exercise-2',
@@ -20,8 +20,8 @@ import { CoursesDto } from './courses.dto';
 })
 export class Exercise2Component implements OnInit {
   public Array = Array;
-  public title: string = 'Courses average';
-  public coursesModel: BaseModelArray = new BaseModelArray(CoursesDto);
+  public title: string = '2. Courses average';
+  public coursesModel: BaseModelArray = new BaseModelArray(CourseDto);
   public average: string = '0';
 
   ngOnInit(): void {
@@ -51,15 +51,6 @@ export class Exercise2Component implements OnInit {
     this.calcAverage();
   }
 
-  inactiveOnZero(index): void {
-    const courseModel = this.coursesModel.find(index);
-    const { studentsNumber } = courseModel.getDto();
-
-    if (studentsNumber === 0) {
-      courseModel.fill({ status: 'inactive' });
-    }
-  }
-
   calcAverage(): void {
     this.coursesModel.validate().then((validationResult) => {
       const { isValid } = validationResult;
@@ -67,7 +58,9 @@ export class Exercise2Component implements OnInit {
       if (isValid) {
         const activeCourses = this.coursesModel
           .getDtos()
-          .filter((course) => course.status === 'active');
+          .filter(
+            (course) => course.status === 'active' && course.studentsNumber > 0,
+          );
 
         const numOfActiveCourses = activeCourses.length || 1;
 

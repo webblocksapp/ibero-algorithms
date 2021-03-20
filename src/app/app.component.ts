@@ -82,7 +82,7 @@ export class AppComponent {
   public sidebarLinks: Array<{ url: string; name: string }> = [
     { url: 'exercise-1', name: '1. Currency conversor' },
     { url: 'exercise-2', name: '2. Courses average' },
-    { url: 'exercise-3', name: 'Exercise 3' },
+    { url: 'exercise-3', name: '3. Playing with numbers' },
     { url: 'exercise-4', name: 'Exercise 4' },
     { url: 'exercise-5', name: 'Exercise 5' },
   ];

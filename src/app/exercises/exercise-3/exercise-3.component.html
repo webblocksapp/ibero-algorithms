@@ -1,1 +1,56 @@
-<p>exercise works!</p>
+<div style="width: 100%; max-width: 600px">
+  <div class="d-block mb-3">
+    <bs-input
+      [model]="numberModel"
+      label="Enter a 3-digit number"
+      name="number"
+      (inputEvent)="play()"
+    ></bs-input>
+  </div>
+
+  <div *ngIf="showResult" class="table-responsive">
+    <h5>Result:</h5>
+    <table class="table table-bordered" width="100%" cellspacing="0">
+      <thead>
+        <tr>
+          <th width="1%">Item</th>
+          <th width="1%">Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Types of number:</b></td>
+          <td>
+            <ul class="mb-0 pl-4">
+              <li *ngIf="isEven">Even</li>
+              <li *ngIf="isOdd">Odd</li>
+              <li *ngIf="isPrime">Prime</li>
+            </ul>
+          </td>
+        </tr>
+        <tr *ngIf="isEven || isOdd">
+          <td><b>Reversed number:</b></td>
+          <td>
+            {{ reversedNumber }}
+          </td>
+        </tr>
+        <tr *ngIf="isOdd">
+          <td><b>Extremes sum:</b></td>
+          <td>
+            {{ extremesSum }}
+          </td>
+        </tr>
+        <tr *ngIf="isPrime">
+          <td><b>Squared number:</b></td>
+          <td>
+            {{ squaredNumber }}
+          </td>
+        </tr>
+        <tr *ngIf="isPrime">
+          <td><b>Squared extremes:</b></td>
+          <td>{{ squaredExtremes[0] }} and {{ squaredExtremes[1] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
