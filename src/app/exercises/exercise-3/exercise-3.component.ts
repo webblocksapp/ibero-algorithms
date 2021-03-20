@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseModel } from '@webblocksapp/ng-forms';
 import { NumberDto } from './number.dto';
 
@@ -6,7 +6,7 @@ import { NumberDto } from './number.dto';
   selector: 'exercise-3',
   templateUrl: './exercise-3.component.html',
 })
-export class Exercise3Component {
+export class Exercise3Component implements OnInit {
   public title: string = '3. Playing with numbers';
   public numberModel: BaseModel = new BaseModel(NumberDto);
   public number: number = 0;
@@ -18,6 +18,11 @@ export class Exercise3Component {
   public extremesSum: number = null;
   public squaredNumber: number = null;
   public squaredExtremes: Array<number> = [];
+
+  ngOnInit(): void {
+    this.numberModel.fill({ number: 100 });
+    this.play();
+  }
 
   play(): void {
     this.reset();
