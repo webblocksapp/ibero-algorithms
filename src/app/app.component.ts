@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
           class="sidebar-brand d-flex align-items-center justify-content-center"
           routerLink="/"
         >
-          <img style="max-width: 120px;" src="/assets/images/ibero-icon.png" />
+          <img style="max-width: 120px;" src="assets/images/ibero-icon.png" />
         </a>
 
         <hr class="sidebar-divider my-0" />
@@ -53,7 +53,7 @@ import { Component } from '@angular/core';
                   </span>
                   <img
                     class="img-profile rounded-circle"
-                    src="/assets/images/me.jpeg"
+                    src="assets/images/me.jpeg"
                   />
                 </a>
               </li>
